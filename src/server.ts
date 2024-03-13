@@ -1,9 +1,18 @@
-import { app } from './app'
-import { env } from 'process'
+// import { app } from './app'
+import fastity from 'fastify'
+import { knex } from './database'
+
+const app = fastity()
+
+app.get('/hello', async () => {
+  const tables = await knex('sqlite_schema').select('*')
+
+  return tables
+})
 
 app
   .listen({
-    port: env.PORT, // Usa a porta definida na variável de ambiente PORT
+    port: 3333,
   })
   .then(() => {
     console.log('HTTP Server Running!')
