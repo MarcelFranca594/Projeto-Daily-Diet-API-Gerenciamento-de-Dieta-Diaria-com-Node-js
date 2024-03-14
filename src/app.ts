@@ -1,14 +1,15 @@
-// import fastity from 'fastify'
-// import cookie from '@fastify/cookie'
+import fastity from 'fastify'
+import cookie from '@fastify/cookie'
+import { usersRoutes } from './routes/users_routes'
+import { mealsRoutes } from './routes/meals_routes'
 
-// import { transactionsRoutes } from './routes/transactions'
-// Criar a base da aplicação
-// export const app = fastity()
-// 5 Principais métodos GET, POST, PUT,  PUTCH, DELETE
-// http://localhost:3333/helo
+export const app = fastity()
 
-// app.register(cookie)
+app.register(cookie)
 
-// app.register(transactionsRoutes, {
-//  prefix: 'transactions',
-// })
+app.register(usersRoutes, {
+  prefix: 'users',
+})
+app.register(mealsRoutes, {
+  prefix: 'meals',
+})
