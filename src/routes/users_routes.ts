@@ -31,7 +31,9 @@ export async function usersRoutes(app: FastifyInstance) {
     }
 
     // Extrai o name, email do corpo da requisição, validando com o esquema definido
-    const { name, email } = createrUserBodySchema.parse(request.body)
+    const { name, email } = createrUserBodySchema.parse(
+      request.body,
+    )
 
     // Busca no banco de dados por um usuário com o mesmo email
     const userByEmail = await knex('users').where({ email }).first()
