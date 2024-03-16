@@ -7,9 +7,5 @@ export const app = fastity()
 
 app.register(cookie)
 
-app.register(usersRoutes, {
-  prefix: 'users',
-})
-app.register(mealsRoutes, {
-  prefix: 'meals',
-})
+app.register(usersRoutes, { prefix: 'users' })
+app.register(mealsRoutes, { prefix: 'meals' })

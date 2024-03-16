@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "knex": "node --import tsx ./node_modules/knex/bin/cli.js",
-    "lint": "eslint src --ext .ts --fix"
+    "lint": "eslint src --ext .ts --fix",
+    "build": "tsup src --out-dir build",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
   },
   "dependencies": {
     "@fastify/cookie": "^9.3.1",
+    "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
     "knex": "^3.1.0",
     "sqlite3": "^5.1.7",

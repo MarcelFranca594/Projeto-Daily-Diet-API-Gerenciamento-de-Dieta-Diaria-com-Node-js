@@ -15,7 +15,7 @@ export async function mealsRoutes(app: FastifyInstance) {
         name: z.string(),
         description: z.string(),
         isOnDiet: z.boolean(), // Indica se a refeição está dentro da dieta
-        date: z.date(), // Data e hora da refeição
+        date: z.coerce.date(), // Data e hora da refeição
       })
 
       const { name, description, isOnDiet, date } =

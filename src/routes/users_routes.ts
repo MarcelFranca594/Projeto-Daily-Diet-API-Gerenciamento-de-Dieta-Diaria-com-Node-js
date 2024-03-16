@@ -26,14 +26,12 @@ export async function usersRoutes(app: FastifyInstance) {
       // Definindo um novo cookie 'sessionId' na resposta HTTP com o valor gerado anteriormente
       reply.cookie('sessionId', sessionId, {
         path: '/',
-        maxAge: 60 * 60 * 24 * 7, // 7 days => Definindo o tempo máximo de vida do cookie em milissegundos (7 dias)
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days => Definindo o tempo máximo de vida do cookie em milissegundos (7 dias)
       })
     }
 
     // Extrai o name, email do corpo da requisição, validando com o esquema definido
-    const { name, email } = createrUserBodySchema.parse(
-      request.body,
-    )
+    const { name, email } = createrUserBodySchema.parse(request.body)
 
     // Busca no banco de dados por um usuário com o mesmo email
     const userByEmail = await knex('users').where({ email }).first()
