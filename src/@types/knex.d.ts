@@ -1,4 +1,4 @@
-import { knex } from 'knex'
+import 'knex'
 
 declare module 'knex/types/tables' {
   export interface Tables {
@@ -17,7 +17,7 @@ declare module 'knex/types/tables' {
       name: string
       description: string
       is_on_diet: boolean
-      date: number
+      date: number // unix timestamp
       created_at: string
       updated_at: string
     }
