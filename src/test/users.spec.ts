@@ -25,7 +25,7 @@ describe('Users routes', () => {
     const cookies = response.get('Set-Cookie')
 
     expect(cookies).toEqual(
-      expect.arrayContaining([expect.stringContaining('sessionId')]),s
+      expect.arrayContaining([expect.stringContaining('sessionId')]),
     )
   })
 })
